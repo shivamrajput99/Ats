@@ -1,0 +1,260 @@
+<%-- 
+    Document   : login
+    Created on : Aug 24, 2019, 9:38:55 AM
+    Author     : dhaval Patel
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+  <head>
+    <title>Log-in</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/style.css">
+                      <style>
+                   
+              
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+    font-size: 14px;
+    padding-top: .15rem;
+    padding-bottom: .9rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #fff;
+    font-weight: 400;
+    opacity: 1 !important;
+}
+ 
+              .ftco-footer {
+    font-size: 16px;
+    background: #222831;
+    padding: 5em 0 3em 0;
+}
+.hero-wrap{
+     height: 299px;
+}
+ .col-md-9 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 75%;
+     max-width: 75%;
+    padding-bottom: 299px;
+}
+        </style>   
+  </head>
+  <body>
+    
+ <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.jsp">ATS</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.jsp" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="passreg.jsp" class="nav-link">Pass Registration</a></li>
+           <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
+                     <li class="nav-item"><a href="register.jsp" class="nav-link">Registration</a></li>
+           <li class="nav-item"><a href="login.jsp" class="nav-link">Log-in</a></li>
+
+           </ul>
+      </div>
+    </div>
+  </nav>
+    <!-- END nav -->
+    
+    <div class="hero-wrap" style="background-image: url('images/top-banner.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Log-in</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <section id="contact" class="contact-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 contact-sec">
+                    <!--<div class="row contact-form-design-area">-->
+                    <div class="col-md-offset-3 col-md-6 m-auto">
+                        <div class="section-title text-center">
+                            <h2>Account Login</h2>
+                            <div class="title-separator-outer ">
+                                <div class="title-separator bg-primary style-liner"></div>
+                            </div>
+                        </div>
+                        <!-- START CONTACT FORM DESIGN AREA -->
+                        <div class="login-form">
+                            <form id="login-form" action="loginprocess.jsp" method="post">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label>Enter Your Email</label>
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required="required">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label>Enter Your Password</label>
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
+                                    </div>
+                                    
+                                    <div class="col-md-6 ">
+                                        <a href="#">Forget Password?</a>
+                                    </div>
+                                    <div class="col-md-12 text-center login-btn">
+                                        <div class="actions wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                                            <input type="submit" value="Login" name="submit" id="btnSubmit" class="" title="Login into Your Account!!!">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <% if(request.getParameter("fail")!=null){ %>   
+
+    <script type="text/javascript">
+       var pass = "<%=request.getParameter("fail")%>";
+       alert("Username Either password is fail.....Please try again...");     
+    </script> 
+    
+<% } %>
+                            </form>
+                        </div>
+                        <!-- / END CONTACT FORM DESIGN AREA </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ <section class="social-login btm_padding">
+        <div class="container">
+                <div class="section-title text-center">
+                    <h2>Or</h2>
+                    <div class="title-separator-outer ">
+                        <div class="title-separator bg-primary style-liner"></div>
+                    </div>
+                </div>
+                <div class="col-md-offset-3 col-md-6 m-auto">
+                    <div class="row">
+                    <div class="col-xl-6 col-md-12">
+                        <button class="slogin-btn facebook-lbtn"><i class="fa fa-facebook"></i> Login Via Facebook</button>
+                    </div>
+                    <div class="col-xl-6 col-md-12">
+                        <button class="slogin-btn twitter-lbtn"><i class="fa fa-twitter"></i> Login Via Twitter</button>
+                    </div>
+                </div>
+                
+                </div>
+        </div>
+    </section>
+    
+    
+  <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">ATS</h2>
+              <p>Advance Travelling System would give information about Bus routes with map and timing. Also, this will provide the online registration of pass service and ticket booking.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+               </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">About</a></li>
+                <li><a href="#" class="py-2 d-block">Service</a></li>
+                <li><a href="#" class="py-2 d-block">Terms and Conditions</a></li>
+                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Customer Support</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                 
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">352,353 A , Nr. Bhavik Publications, Sarkhej - Gandhinagar Hwy, opp. Bhagwat Vidyapith, Gota, Ahmedabad, Gujarat - 382481</span></li>
+	                <li><span class="icon icon-phone"></span><span class="text">+91 7874277637</span></li>
+	                <li><span class="icon icon-envelope"></span><span class="text">99047dhaval@gmail.com</span></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All Rights Reserved | This Design is made with <i class="icon-heart" aria-hidden="true"></i> by SOCET Students
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+
+ <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+    
+    </body>
+</html>
